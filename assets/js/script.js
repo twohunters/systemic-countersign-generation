@@ -4,20 +4,11 @@ var lowerChar = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"
 var upperChar = ["A","B","C","D","E","F","G","H","I","J","K","M","L","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
 function makeitso() {
+
     var lengthChar = parseInt(prompt("How many characters will your password contain? Must be 8-128"));
-    var specialCharY = confirm("Include special characters?");
-    var numericCharY = confirm("Include numbers?");
-    var lowerCharY = confirm("Include lowercase letters?");
-    var upperCharY = confirm("Include uppercase letters?");
-    var characters = {
-        lengthCharY: lengthCharY,
-        specialCharY: specialCharY,
-        lowerCharY: lowerCharY,
-        upperCharY: upperCharY
-    };
 
     if (isNaN(lengthChar) === true) {
-        alert("Must be a number")
+        alert("Must be a number");
         return;
     }
     if (lengthChar < 8) {
@@ -28,28 +19,43 @@ function makeitso() {
         alert("Must be no more than 128 characters");
         return;
     }
+
+    var specialCharY = confirm("Include special characters?");
+    var numericCharY = confirm("Include numbers?");
+    var lowerCharY = confirm("Include lowercase letters?");
+    var upperCharY = confirm("Include uppercase letters?");
+
     if (
         specialCharY === false &&
         numericCharY === false &&
         lowerCharY === false &&
         upperCharY === false
-        ) {
+    ) {
         alert("Must include at least one type of character");
         return;
         }
-    return characters;
+    
+    var characterCombo = {
+        lengthCharY: lengthCharY,
+        specialCharY: specialCharY,
+        numericCharY: numericCharY,
+        lowerCharY: lowerCharY,
+        upperCharY: upperCharY
+    };
+
+    return characterCombo;
 }
 
 function randomize(arr) {
-    var randomIndex = Math.floor(Math.random()*arr.charLength);
-    var taadaa = arr[randomIndex];
+    var randomChars = Math.floor(Math.random()*arr.charLength);
+    var randomElement = arr[randomChars];
 
-    return taadaa;
+    return randomElement;
 }
 
 function generate() {
     var options = makeitso();
-    var result = [];
+    var results = [];
     var possibleChar = [];
     var chooseChar = [];
 
@@ -69,11 +75,15 @@ function generate() {
         possibleChar = possibleChar.concat(upperChar);
         chooseChar.push(randomize(upperChar));
     }
+    for (var i=0; i<options.charLength; i++) {
+        var possibleChar = randomize(possibleChar);
+        result.push(possibleChar);
+    }
     for (var i=0; i<chooseChar.charLength; i++) {
         result[i] = chooseChar[i];
     }
 
-    return result.join("");
+    return results.join("");
 }
 
 var engage = document.querySelector("#redbutton");
@@ -85,5 +95,4 @@ function makePassword(){
     passwordDisplay.value = password;
 }
 
-// document.getElementById("#redbutton").addEventListener("click"), makeaPassword();
 engage.addEventListener("click", makePassword);

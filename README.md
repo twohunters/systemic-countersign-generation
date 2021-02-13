@@ -4,8 +4,8 @@
 
 It's a password generator! I created this to get some real practice in with writing javascript, it's nice to build something with real-world functionality and purpose.
 
-[Deployed] https://twohunters.github.io/systemic-countersign-generation/
-[Repository] https://github.com/twohunters/systemic-countersign-generation
+[Deployed](https://twohunters.github.io/systemic-countersign-generation/)
+[Repository](https://github.com/twohunters/systemic-countersign-generation)
 
 
 ## Installation
@@ -17,8 +17,8 @@ Visit the links listed above.
 
 This page is a simple exercise in developing JavaScript. To run it, simply click the "Generate Password" button and follow the onscreen prompts to create a randomly generated password.
 
-![Deployed](./assets/images/deployed.png)
-![Repository](./assets/images/repo.png)
+![Deployed](./assets/images/deployed.PNG)
+![Repository](./assets/images/repo.PNG)
 
 
 ## Credits

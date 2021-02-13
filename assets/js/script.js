@@ -30,7 +30,7 @@ function makeitso() {
         numericCharY === false &&
         lowerCharY === false &&
         upperCharY === false
-    ) {
+        ) {
         alert("Must include at least one type of character");
         return;
         }
@@ -47,40 +47,40 @@ function makeitso() {
 }
 
 function randomize(arr) {
-    var randomChars = Math.floor(Math.random()*arr.charLength);
-    var randomElement = arr[randomChars];
+    var randomChars = Math.floor(Math.random()*arr.lengthChar);
+    var randomResult = arr[randomChars];
 
-    return randomElement;
+    return randomResult;
 }
 
 function generate() {
     var options = makeitso();
     var results = [];
     var possibleChar = [];
-    var chooseChar = [];
-
+    var chosenChar = [];
+    
     if (options.specialCharY) {
         possibleChar = possibleChar.concat(specialChar);
-        chooseChar.push(randomize(specialChar));
+        chosenChar.push(randomize(specialChar));
     }
     if (options.numericCharY) {
         possibleChar = possibleChar.concat(numericChar);
-        chooseChar.push(randomize(numericChar));
+        chosenChar.push(randomize(numericChar));
     }
     if (options.lowerCharY) {
         possibleChar = possibleChar.concat(lowerChar);
-        chooseChar.push(randomize(lowerChar));
+        chosenChar.push(randomize(lowerChar));
     }
     if (options.upperCharY) {
         possibleChar = possibleChar.concat(upperChar);
-        chooseChar.push(randomize(upperChar));
+        chosenChar.push(randomize(upperChar));
     }
-    for (var i=0; i<options.charLength; i++) {
+    for (var i=0; i < options.lengthChar; i++) {
         var possibleChar = randomize(possibleChar);
         results.push(possibleChar);
     }
-    for (var i=0; i<chooseChar.charLength; i++) {
-        results[i] = chooseChar[i];
+    for (var i=0; i < chosenChar.lengthChar; i++) {
+        results[i] = chosenChar[i];
     }
 
     return results.join("");

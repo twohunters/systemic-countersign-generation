@@ -36,7 +36,7 @@ function makeitso() {
         }
     
     var characterCombo = {
-        lengthCharY: lengthCharY,
+        lengthChar: lengthChar,
         specialCharY: specialCharY,
         numericCharY: numericCharY,
         lowerCharY: lowerCharY,
@@ -77,10 +77,10 @@ function generate() {
     }
     for (var i=0; i<options.charLength; i++) {
         var possibleChar = randomize(possibleChar);
-        result.push(possibleChar);
+        results.push(possibleChar);
     }
     for (var i=0; i<chooseChar.charLength; i++) {
-        result[i] = chooseChar[i];
+        results[i] = chooseChar[i];
     }
 
     return results.join("");
@@ -88,7 +88,7 @@ function generate() {
 
 var engage = document.querySelector("#redbutton");
 
-function makePassword(){
+function makePassword() {
     var password = generate();
     var passwordDisplay = document.querySelector("#passwordbox");
 

@@ -29,15 +29,11 @@ main {
     box-shadow: grey 0px 0px 3px;
 }
 
-.mainHeader {
-    padding: 40px;
-}
-
 .mainContent {
     text-align: center;
 }
 
-.mainFooter {
+.mainHeader, .mainFooter {
     text-align: center;
     padding: 40px;
 }
